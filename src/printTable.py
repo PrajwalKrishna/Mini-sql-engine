@@ -1,10 +1,19 @@
+def printRow(row):
+    width=15
+    print('|',end='')
+    for i in row:
+        i=str(i)
+        i=i.center(width)
+        print(i,end='|')
+    print()
+    border = '-' * width + ' '
+    border = ' ' + border * len(row)
+    print(border)
+
 def printTable(table):
     if not len(table):
         print(None)
         return
-    for key in table[0].keys():
-        print(key,'\t', end='')
-    print()
+    printRow(table[0])
     for record in table:
-        [print(record[key],'\t',end='') for key in record.keys()]
-        print()
+        printRow([record[element] for element in record.keys()])

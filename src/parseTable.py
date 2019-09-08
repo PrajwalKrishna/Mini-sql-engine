@@ -32,6 +32,8 @@ def selectDistinct(columns,table):
     return parsed_records
 
 def selectRecords(columns, table, conditions):
+    if not conditions:
+        return table
     parsed_records = []
     if not conditions['conjuction']:
         for record in table:
